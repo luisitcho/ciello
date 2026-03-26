@@ -7,13 +7,33 @@
     <title>Document</title>
     <link rel="stylesheet" href="fonts/stylesheet.css">
     <link rel="stylesheet" href="https://ciello.com.br/wp-content/litespeed/css/bffcf228d726a5d1d50c6715987076fb.css?ver=f4b56">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <!-- New Sections -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <section class="l-hero-banner">
+        <div class="l-banner-container">
+            <div class="l-banner-content">
+                <img src="img/grafismo-amarelo.png" class="grafismo grafismo--dots-top" aria-hidden="true">
+                <h2 class="l-banner-headline">
+                    <span class="box-blue">SEU QUARTO NÃO É</span>
+                    <span class="box-blue">APENAS UM CÔMODO.</span>
+                    <span class="box-yellow">É O SEU REFÚGIO DIÁRIO.</span>
+                </h2>
+                <div class="l-banner-text">
+                    <p>Descubra os Modulados Ciello: design inteligente que se une ao aconchego que você merece. Organize seu espaço com sofisticação, praticidade e máxima otimização.</p>
+                </div>
+                <a href="#" class="l-cta-button">MONTAR MEU REFÚGIO AGORA</a>
+                <img src="img/grafismo-preto.png" class="grafismo grafismo--preto-bottom" aria-hidden="true">
+            </div>
+            <div class="l-banner-media">
+                <img src="img/grafismo-amarelo.png" class="grafismo grafismo--dots-right" aria-hidden="true">
+                <img src="img/banner.png" alt="Meu Refúgio Ciello" class="l-banner-image">
+            </div>
+        </div>
+    </section>
 
     <section class="l-comparison-section">
         <div class="l-comparison-grid">

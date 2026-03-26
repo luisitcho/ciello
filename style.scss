@@ -29,7 +29,156 @@ body {
   padding: 0;
 }
 
-// 00. Comparison Section
+// 01. Hero Banner Section
+.l-hero-banner {
+  background: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  // Overflow: visible for the grafismos to spill organically
+
+  .l-banner-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      align-items: stretch;
+      min-height: 80vh;
+    }
+  }
+
+  .l-banner-content {
+    flex: 1;
+    background: #fff;
+    padding: 60px 20px;
+    z-index: 10;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    @media (min-width: 1024px) {
+      padding: 60px 100px;
+      border-radius: 0; // Removed curved edge
+      margin-right: 0;
+    }
+
+    .grafismo--preto-bottom {
+      position: absolute;
+      bottom: -134px;
+      left: -96px;
+      max-width: 550px;
+      opacity: 0.4;
+      z-index: 1;
+    }
+
+    .grafismo--dots-top {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      max-width: 415px;
+      opacity: 0.6;
+    }
+
+    .l-banner-headline {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      font-family: "Khand", sans-serif;
+      color: #3a4b68;
+
+      @media (min-width: 1024px) {
+        font-size: 3.5rem;
+      }
+
+      span {
+        display: block;
+        width: fit-content;
+        padding: 5px 20px;
+        margin-bottom: 8px;
+        transform: skewX(-5deg); // Subtle skew as in some Ciello prints
+
+        &.box-blue {
+          background: #0044ff;
+          color: #fff;
+        }
+        &.box-yellow {
+          background: #fee227;
+          color: #000;
+        }
+      }
+    }
+
+    .l-banner-text {
+      max-width: 500px;
+      margin-bottom: 40px;
+      p {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        color: #3a4b68;
+        font-weight: 600;
+        font-family: "Khand", sans-serif;
+      }
+    }
+
+    .l-cta-button {
+      background: #ff4500;
+      color: #fff;
+      font-family: "Khand", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      padding: 15px 40px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition:
+        transform 0.3s,
+        background 0.3s;
+      box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
+
+      &:hover {
+        transform: translateY(-5px);
+        background: #e63e00;
+      }
+    }
+  }
+
+  .l-banner-media {
+    flex: 1.4;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+
+    .l-banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // Better balance for wide banners
+      display: block;
+      @media (min-width: 1400px) {
+        object-position: center top;
+      }
+    }
+
+    .grafismo {
+      position: absolute;
+    }
+
+    .grafismo--dots-right {
+      top: 20px;
+      right: 20px;
+      max-width: 160px;
+      opacity: 0.7;
+      z-index: 5;
+    }
+  }
+}
+
+// 02. Comparison Section
 .l-comparison-section {
   padding: 60px 0;
   background: #fdfdfd;
