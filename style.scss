@@ -67,7 +67,7 @@ body {
 
     .grafismo--preto-bottom {
       position: absolute;
-      bottom: -134px;
+      bottom: -131px;
       left: -96px;
       max-width: 550px;
       opacity: 0.4;
@@ -100,7 +100,8 @@ body {
         width: fit-content;
         padding: 5px 20px;
         margin-bottom: 8px;
-        transform: skewX(-5deg); // Subtle skew as in some Ciello prints
+        position: relative;
+        z-index: 2;
 
         &.box-blue {
           background: #0044ff;
