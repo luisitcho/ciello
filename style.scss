@@ -29,7 +29,297 @@ body {
   padding: 0;
 }
 
-// 0. Gallery Section
+// 00. Comparison Section
+.l-comparison-section {
+  padding: 60px 0;
+  background: #fdfdfd;
+  overflow: hidden;
+
+  .l-comparison-grid {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      align-items: stretch;
+      overflow: hidden;
+    }
+  }
+
+  .l-comparison-media {
+    .ba-slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 0; // Sharp edges as requested
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+      cursor: col-resize;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .after-img-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        border-right: 4px solid #fff;
+        z-index: 2;
+
+        .after-img {
+          width: 1320px; // Large enough fallback
+          width: calc(100vw - 40px); // Fallback for mobile
+          @media (min-width: 1200px) {
+            width: 700px;
+          } // Estimated width
+          // Most robust: use container width via JS or object-fit cover
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          max-width: none;
+        }
+      }
+
+      .ba-handle {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background: #fff;
+        z-index: 10;
+        transform: translateX(-50%);
+
+        .handle-arrow-left,
+        .handle-arrow-right {
+          position: absolute;
+          top: 50%;
+          width: 35px;
+          height: 35px;
+          background: #fff;
+          border-radius: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+          &::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid #3a4b68;
+            border-left: 2px solid #3a4b68;
+          }
+        }
+        .handle-arrow-left {
+          right: 5px;
+          &::before {
+            transform: rotate(-45deg);
+            margin-left: 4px;
+          }
+        }
+        .handle-arrow-right {
+          left: 5px;
+          &::before {
+            transform: rotate(135deg);
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  .l-comparison-content {
+    flex: 1;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 1200px) {
+      padding: 40px 80px;
+    }
+
+    .grafismo {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .grafismo--dots {
+      top: 0px;
+      left: 0px;
+      max-width: 150px;
+      opacity: 0.8;
+      filter: sepia(1) saturate(5) hue-rotate(-10deg);
+      z-index: 1;
+    }
+
+    .grafismo--preto-comp {
+      bottom: -70px;
+      left: -80px;
+      max-width: 450px;
+      opacity: 0.4; // More visible now
+      z-index: 2;
+    }
+
+    .l-comparison-title {
+      font-size: 2.22rem;
+      font-weight: 800;
+      color: #3a4b68;
+      font-family: "Khand", sans-serif;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 10;
+      @media (min-width: 1200px) {
+        font-size: 3.2rem;
+      }
+
+      .grafismo--arrow {
+        position: absolute;
+        bottom: 10%;
+        right: 0px; // Inside for safety
+        max-width: 30px;
+        transform: rotate(-10deg);
+        z-index: 15;
+      }
+    }
+
+    .l-comparison-text {
+      font-size: 1.25rem;
+      color: #3a4b68;
+      line-height: 1.5;
+      font-weight: 500;
+      position: relative;
+
+      * {
+        font-family: "Khand", sans-serif;
+      }
+
+      p {
+        margin-bottom: 25px;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 1.2;
+
+        @media (min-width: 1200px) {
+          font-size: 35px;
+        }
+      }
+
+      .highlight {
+        color: #ff6e00 !important;
+        font-weight: 800;
+        font-size: 1.6rem;
+        font-family: "Khand", sans-serif;
+        display: block;
+      }
+    }
+  }
+}
+
+// 01. Benefits Section
+.l-benefits-section {
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  // Perfect diagonal background with grey at the bottom
+  background: linear-gradient(165deg, #fff 50%, #f4f4f4 50%);
+
+  .l-benefits-wrapper {
+    background: #ff6e00; // Solid orange
+    padding: 60px 0;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+    // Dot pattern on orange
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(
+        rgba(255, 255, 255, 0.15) 1.5px,
+        transparent 1.5px
+      );
+      background-size: 18px 18px;
+    }
+  }
+
+  .l-benefits-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 10;
+    @media (min-width: 1024px) {
+      flex-wrap: nowrap;
+      padding: 0 40px;
+    }
+  }
+
+  .l-benefit-item {
+    flex: 1 1 200px;
+    text-align: center;
+    color: #fff !important; // Force white text
+    padding: 20px;
+
+    .l-benefit-icon {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 100%;
+        height: 100%;
+        stroke: #fff;
+        stroke-width: 2;
+      }
+    }
+
+    .l-benefit-title {
+      font-family: "Khand", sans-serif !important; // Force title font
+      color: #fff !important;
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .l-benefit-text {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      opacity: 1;
+      color: #fff !important;
+    }
+  }
+}
+
+// 1. Existing Gallery...
 .l-gallery-section {
   padding: 80px 0;
   background: #fff;
@@ -83,7 +373,7 @@ body {
     .l-gallery-title {
       font-size: 2.22rem;
       font-weight: 800;
-      color: #001a33;
+      color: #3a4b68;
       margin-bottom: 10px;
       line-height: 1.2;
       text-transform: uppercase;
@@ -91,7 +381,7 @@ body {
     .l-gallery-subtitle {
       font-size: 1.4rem;
       font-weight: 700;
-      color: #001a33;
+      color: #3a4b68;
     }
   }
 
@@ -108,7 +398,6 @@ body {
     .l-gallery-card {
       border-radius: 30px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       background: #ff6e00; // Orange theme as in print
 
       img {
@@ -246,7 +535,7 @@ body {
       font-size: 2.22rem;
       font-weight: 800;
       line-height: 1;
-      color: #001a33;
+      color: #3a4b68;
       margin-bottom: 30px; // Restored margin
       font-family: "Khand", sans-serif;
       text-transform: uppercase;
@@ -289,6 +578,7 @@ body {
 
     .l-offer-cta {
       background: #00ff00;
+      font-family: "Khand", sans-serif;
       color: #000;
       padding: 22px 35px;
       border-radius: 20px;
@@ -301,9 +591,14 @@ body {
       margin-bottom: 40px;
       transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       width: fit-content;
+
       &:hover {
         transform: scale(1.05);
         box-shadow: 0 15px 50px rgba(0, 255, 0, 0.5);
+      }
+
+      @media (min-width: 1200px) {
+        padding: 20px 40px;
       }
     }
 
@@ -388,7 +683,7 @@ body {
 
       .l-offer-promo-gift {
         background: $accent-color;
-        color: #001a33;
+        color: #3a4b68;
         padding: 8px 25px;
         font-weight: 800;
         border-radius: 8px;
@@ -478,7 +773,7 @@ body {
       font-size: 2.2rem;
       font-weight: 800;
       line-height: 1;
-      color: #001a33;
+      color: #3a4b68;
       margin-bottom: 25px;
       font-family: "Khand", sans-serif;
       text-transform: uppercase;
@@ -657,7 +952,7 @@ body {
       font-size: 2.2rem;
       font-weight: 800;
       line-height: 1; // Collapse extra space
-      color: #001a33;
+      color: #3a4b68;
       margin-bottom: 20px;
       font-family: "Khand", sans-serif;
       text-transform: uppercase;
@@ -687,7 +982,7 @@ body {
         font-size: 1.15rem;
         font-weight: 500;
         line-height: 1.5;
-        color: #001a33;
+        color: #3a4b68;
         margin: 0;
       }
     }

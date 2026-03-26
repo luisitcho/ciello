@@ -15,6 +15,77 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 
+    <section class="l-comparison-section">
+        <div class="l-comparison-grid">
+            <div class="l-comparison-media">
+                <div class="ba-slider">
+                    <img src="img/before.png" alt="Antes" class="before-img">
+                    <div class="after-img-container">
+                        <img src="img/after.png" alt="Depois" class="after-img">
+                    </div>
+                    <div class="ba-handle">
+                        <span class="handle-arrow-left"></span>
+                        <span class="handle-arrow-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="l-comparison-content">
+                <img src="img/grafismo-preto.png" class="grafismo grafismo--preto-comp" aria-hidden="true">
+                <img src="img/grafismo-amarelo.png" class="grafismo grafismo--dots" aria-hidden="true">
+                <h2 class="l-comparison-title">CANSADO DE SENTIR QUE SEU QUARTO ESTÁ SEMPRE BAGUNÇADO, NÃO IMPORTA O QUANTO VOCÊ ARRUME?
+                    <img src="img/grafismo-seta-amarela.png" class="grafismo grafismo--arrow" aria-hidden="true">
+                </h2>
+                <div class="l-comparison-text">
+                    <p>Nós entendemos. Portas que não fecham direito, gavetas emperradas e a sensação de que falta espaço para tudo... isso rouba a paz do seu descanso.</p>
+                    <p class="highlight">Mas não precisa ser assim. O aconchego começa na organização inteligente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="l-benefits-section">
+        <div class="l-benefits-wrapper">
+            <div class="l-benefits-container">
+                <div class="l-benefit-item">
+                    <div class="l-benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 8v8M32 48v8M16 32H8M56 32h-8M21 21l-6-6M49 49l-6-6M15 49l6-6M43 21l6 6" />
+                        </svg>
+                    </div>
+                    <h3 class="l-benefit-title">Otimização Milimétrica</h3>
+                    <p class="l-benefit-text">Aproveite cada centímetro disponível, do chão ao teto, com módulos que se adaptam ao seu espaço, não o contrário.</p>
+                </div>
+                <div class="l-benefit-item">
+                    <div class="l-benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 42l-8-8 8-8m20 0l8 8-8 8M14 34h36" />
+                        </svg>
+                    </div>
+                    <h3 class="l-benefit-title">Durabilidade Reconfirmada</h3>
+                    <p class="l-benefit-text">Ferragens de padrão internacional e MDF de alta densidade garantem móveis que não apenas parecem bons, mas duram uma vida.</p>
+                </div>
+                <div class="l-benefit-item">
+                    <div class="l-benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 12l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12z" />
+                        </svg>
+                    </div>
+                    <h3 class="l-benefit-title">Design Tendência</h3>
+                    <p class="l-benefit-text">Aproveite cada centímetro disponível, do chão ao teto, com módulos que se adaptam ao seu espaço, não o contrário.</p>
+                </div>
+                <div class="l-benefit-item">
+                    <div class="l-benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M48 32H16M16 32h32m-32 0s0-8 8-8 8 8 8 8 8-8 8-8h8v16H8V32z" />
+                        </svg>
+                    </div>
+                    <h3 class="l-benefit-title">Aconchego Planejado</h3>
+                    <p class="l-benefit-text">Cores neutras, acabamentos táteis e linhas minimalistas que trazem a estética escandinava e contemporânea para dentro da sua casa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="l-gallery-section">
         <img src="img/grafismo-amarelo.png" class="grafismo grafismo--amarelo" aria-hidden="true">
         <img src="img/grafismo-preto.png" class="grafismo grafismo--preto" aria-hidden="true">
@@ -23,7 +94,7 @@
                 <h2 class="l-gallery-title">UMA AMOSTRA DO QUE ESPERA POR VOCÊ NO NOSSO SITE.</h2>
                 <p class="l-gallery-subtitle">Confira alguns dos projetos mais amados e imagine-os na sua casa!</p>
             </div>
-            
+
             <div class="l-gallery-carousel">
                 <div class="l-gallery-item">
                     <div class="l-gallery-card">
@@ -268,6 +339,27 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         $(document).ready(function() {
+            // Before/After Slider
+            $('.ba-slider').each(function() {
+                var container = $(this);
+                var afterImg = container.find('.after-img-container');
+                var handle = container.find('.ba-handle');
+
+                function moveSlider(x) {
+                    var containerRect = container[0].getBoundingClientRect();
+                    var percent = ((x - containerRect.left) / containerRect.width) * 100;
+                    if (percent < 0) percent = 0;
+                    if (percent > 100) percent = 100;
+                    afterImg.css('width', percent + '%');
+                    handle.css('left', percent + '%');
+                }
+
+                container.on('mousemove touchmove', function(e) {
+                    var x = e.pageX || e.originalEvent.touches[0].pageX;
+                    moveSlider(x);
+                });
+            });
+
             $('.l-gallery-carousel').slick({
                 infinite: true,
                 slidesToShow: 3,
