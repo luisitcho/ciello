@@ -16,26 +16,36 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 
     <section class="l-offer-section">
-        <div class="l-offer-wrapper">
-            <div class="l-offer-blue">
-                <div class="l-offer-content-left">
-                    <h2 class="l-offer-title">TRANSFORME SEU QUARTO <span>AINDA ESTA SEMANA</span></h2>
-                    <p class="l-offer-text">Aproveite nossa condição exclusiva de lançamento da nova coleção:</p>
-                    <a href="#" class="l-offer-btn">FALAR COM UM CONSULTOR AGORA!</a>
-                    <p class="l-offer-disclaimer"><strong>Atenção:</strong> Esta condição é válida apenas para os próximos 50 pedidos ou enquanto durarem os estoques de lançamento.</p>
+        <img src="img/grafismo-amarelo.png" class="grafismo grafismo--amarelo" aria-hidden="true">
+        <img src="img/grafismo-preto.png" class="grafismo grafismo--preto" aria-hidden="true">
+
+        <div class="l-offer-grid">
+            <div class="l-offer-col l-offer-col--blue">
+                <div class="l-offer-content">
+                    <h2 class="l-offer-title">
+                        <span>TRANSFORME SEU QUARTO</span>
+                        <span>AINDA ESTA SEMANA</span>
+                    </h2>
+                    <p class="l-offer-subtitle">Aproveite nossa condição exclusiva de lançamento da nova coleção:</p>
+
+                    <a href="#" class="l-offer-cta">
+                        FALAR COM UM CONSULTOR AGORA!
+                    </a>
+
+                    <p class="l-offer-disclaimer">
+                        <strong>Atenção:</strong> Esta condição é válida apenas para os próximos 50 pedidos ou enquanto durarem os estoques de lançamento.
+                    </p>
                 </div>
             </div>
-            <div class="l-offer-orange">
-                <div class="l-offer-banner">
-                    <img src="img/offer-main.png" alt="Oferta Exclusiva" class="l-offer-img">
-                    <div class="l-offer-overlay">
-                        <div class="l-offer-badge">
-                            <h3>OFERTA EXCLUSIVA</h3>
-                            <div class="l-offer-discount">20%<span>OFF</span></div>
-                            <div class="l-offer-gift">🎁 Com montagem gratuita para Curitiba e região</div>
-                        </div>
+            <div class="l-offer-col l-offer-col--image">
+                <div class="l-offer-promo-box">
+                    <h3 class="l-offer-promo-label">OFERTA EXCLUSIVA</h3>
+                    <div class="l-offer-promo-discount">20%OFF</div>
+                    <div class="l-offer-promo-gift">
+                        <span>🎁</span> Com montagem gratuita para Curitiba e região
                     </div>
                 </div>
+                <img src="img/offer-main.png" alt="Quarto Ciello" class="l-offer-img">
             </div>
         </div>
     </section>
