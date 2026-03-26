@@ -29,6 +29,151 @@ body {
   padding: 0;
 }
 
+// 0. Gallery Section
+.l-gallery-section {
+  padding: 80px 0;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+
+  // Pattern Background
+  &::before {
+    content: "Imagine na sua casa Imagine na sua casa Imagine na sua casa Imagine na sua casa";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    width: 200%;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03);
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .grafismo {
+    position: absolute;
+    display: none;
+    @media (min-width: 1200px) {
+      display: block;
+    }
+    pointer-events: none;
+    z-index: 1;
+
+    &--amarelo {
+      top: 0;
+      left: 0;
+      max-width: 250px;
+    }
+    &--preto {
+      top: 50px;
+      right: -100px;
+      max-width: 350px;
+    }
+  }
+
+  .l-gallery-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    position: relative;
+    z-index: 5;
+
+    .l-gallery-title {
+      font-size: 2.22rem;
+      font-weight: 800;
+      color: #001a33;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .l-gallery-subtitle {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #001a33;
+    }
+  }
+
+  .l-gallery-carousel {
+    position: relative;
+    z-index: 5;
+    max-width: 1320px;
+    margin: 0 auto;
+
+    .l-gallery-item {
+      padding: 0 15px;
+    }
+
+    .l-gallery-card {
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      background: #ff6e00; // Orange theme as in print
+
+      img {
+        width: 100%;
+        height: 300px;
+        display: block;
+        border-radius: 30px;
+        object-fit: cover;
+      }
+      .l-gallery-card-footer {
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.25rem;
+        border-radius: 0 0 30px 30px;
+      }
+    }
+
+    // ARROWS (CHEVRON)
+    .slick-prev,
+    .slick-next {
+      z-index: 100;
+      width: 55px;
+      height: 55px;
+      background: transparent !important;
+      border: none;
+      &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url("img/seta-amarela.png") no-repeat center / contain;
+        opacity: 0.8;
+        transition: 0.3s;
+      }
+      &:hover::before {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+    .slick-prev {
+      left: -70px;
+      &:before {
+        transform: scaleX(-1);
+      }
+      &:hover::before {
+        transform: scaleX(-1) scale(1.1);
+      }
+    }
+    .slick-next {
+      right: -70px;
+    }
+
+    @media (max-width: 1400px) {
+      .slick-prev {
+        left: 10px;
+      }
+      .slick-next {
+        right: 10px;
+      }
+    }
+  }
+}
+
 // 1. Offer Section
 .l-offer-section {
   background: $brand-blue;
@@ -38,26 +183,38 @@ body {
 
   .grafismo {
     position: absolute;
-
     display: none;
-
     @media (min-width: 1200px) {
       display: block;
     }
+    pointer-events: none;
+    z-index: 1;
 
     &--amarelo {
       top: 0;
       left: 0;
       max-width: 180px;
-      z-index: 1;
-      pointer-events: none;
     }
+
+    &--moedas-top {
+      top: 0px;
+      left: 0px;
+      max-width: 120px;
+      z-index: 10;
+      opacity: 0.9;
+    }
+
+    &--moedas-title {
+      top: 40px;
+      right: 40px;
+      max-width: 140px;
+      z-index: 10;
+    }
+
     &--preto {
       bottom: -100px;
       left: -100px;
       max-width: 580px;
-      z-index: 1;
-      pointer-events: none;
     }
   }
 
@@ -86,13 +243,13 @@ body {
     }
 
     .l-offer-title {
-      font-size: 2.5rem;
+      font-size: 2.22rem;
       font-weight: 800;
       line-height: 1;
       color: #001a33;
+      margin-bottom: 30px; // Restored margin
       font-family: "Khand", sans-serif;
       text-transform: uppercase;
-      margin-bottom: 30px;
 
       span {
         background: $accent-color;
@@ -105,7 +262,19 @@ body {
       }
 
       @media (min-width: 1200px) {
-        font-size: 3.5rem;
+        font-size: 4.2rem; // Matches Hero Title
+      }
+
+      .grafismo--seta {
+        display: none;
+        @media (min-width: 1200px) {
+          display: block;
+          position: absolute;
+          top: 30%;
+          right: 0px;
+          max-width: 50px;
+          transform: rotate(15deg);
+        }
       }
     }
 
@@ -163,7 +332,7 @@ body {
       flex: 0 0 55%;
       border-top-left-radius: 150px;
       border-bottom-left-radius: 150px;
-      height: 600px;
+      height: 615px;
     }
 
     .l-offer-img {

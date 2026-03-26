@@ -15,8 +15,48 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 
+    <section class="l-gallery-section">
+        <img src="img/grafismo-amarelo.png" class="grafismo grafismo--amarelo" aria-hidden="true">
+        <img src="img/grafismo-preto.png" class="grafismo grafismo--preto" aria-hidden="true">
+        <div class="container">
+            <div class="l-gallery-header">
+                <h2 class="l-gallery-title">UMA AMOSTRA DO QUE ESPERA POR VOCÊ NO NOSSO SITE.</h2>
+                <p class="l-gallery-subtitle">Confira alguns dos projetos mais amados e imagine-os na sua casa!</p>
+            </div>
+            
+            <div class="l-gallery-carousel">
+                <div class="l-gallery-item">
+                    <div class="l-gallery-card">
+                        <img src="img/banner1.png" alt="Projeto 1">
+                        <div class="l-gallery-card-footer">Modulado Premium 01</div>
+                    </div>
+                </div>
+                <div class="l-gallery-item">
+                    <div class="l-gallery-card">
+                        <img src="img/banner2.png" alt="Projeto 2">
+                        <div class="l-gallery-card-footer">Modulado Premium 01</div>
+                    </div>
+                </div>
+                <div class="l-gallery-item">
+                    <div class="l-gallery-card">
+                        <img src="img/banner3.png" alt="Projeto 3">
+                        <div class="l-gallery-card-footer">Modulado Premium 01</div>
+                    </div>
+                </div>
+                <div class="l-gallery-item">
+                    <div class="l-gallery-card">
+                        <img src="img/banner1.png" alt="Projeto 4">
+                        <div class="l-gallery-card-footer">Modulado Premium 01</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="l-offer-section">
         <img src="img/grafismo-amarelo.png" class="grafismo grafismo--amarelo" aria-hidden="true">
+        <img src="img/grafismo-moedas.png" class="grafismo grafismo--moedas-top" aria-hidden="true">
+        <img src="img/grafismo-moedas.png" class="grafismo grafismo--moedas-title" aria-hidden="true">
         <img src="img/grafismo-preto.png" class="grafismo grafismo--preto" aria-hidden="true">
 
         <div class="l-offer-grid">
@@ -25,6 +65,9 @@
                     <h2 class="l-offer-title">
                         <span>TRANSFORME SEU QUARTO</span>
                         <span>AINDA ESTA SEMANA</span>
+
+                        <img src="img/grafismo-seta-amarela.png" class="grafismo grafismo--seta" aria-hidden="true">
+
                     </h2>
                     <p class="l-offer-subtitle">Aproveite nossa condição exclusiva de lançamento da nova coleção:</p>
 
@@ -225,6 +268,26 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         $(document).ready(function() {
+            $('.l-gallery-carousel').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: false,
+                autoplay: true,
+                responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                }, {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }]
+            });
+
             $('.l-visual-carousel').slick({
                 infinite: true,
                 slidesToShow: 1,
